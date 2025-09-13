@@ -17,7 +17,14 @@ sudo docker compose up
 sudo docker-compose run --rm app sh -c "flake8" 
 
 # tests
-sudo docker-compose run --rm app sh -c "pyhton manage.py test" 
+sudo docker-compose run --rm app sh -c "python manage.py test" 
 
 # install Django
 sudo docker-compose run --rm app sh -c "django-admin startproject app ." 
+
+# new app
+sudo docker-compose run --rm app sh -c "python manage.py startapp core" 
+
+# test the custom wait_for_db Django command to check DB availalbe or not
+ sudo docker-compose run --rm app sh -c "python manage.py wait_for_db"
+ 
